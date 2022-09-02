@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <prossi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:09:11 by prossi            #+#    #+#             */
-/*   Updated: 2022/07/29 19:02:05 by prossi           ###   ########.fr       */
+/*   Created: 2022/07/29 19:13:46 by prossi            #+#    #+#             */
+/*   Updated: 2022/07/29 19:17:02 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(void)
+WrongCat::WrongCat(void)
 {
-	this->type = "Cat";
-	std::cout << "Passing through Cat default constructor" << std::endl;
+	this->type = "WrongCat";
+	std::cout << "Passing through WrongCat default constructor" << std::endl;
 	return;
 }
 
-Cat::~Cat(void)
+WrongCat::~WrongCat(void)
 {
-	std::cout << "Passing through Cat destructor" << std::endl;
+	std::cout << "Passing through WrongCat destructor" << std::endl;
 	return;
 }
 
-Cat::Cat(const Cat &other) : Animal(other)
+WrongCat::WrongCat(const WrongCat &other)
 {
-	std::cout << "Passing through Cat copy constructor" << std::endl;
+	std::cout << "Passing through WrongCat copy constructor" << std::endl;
 	*this = other;
 	return;
 }
 
-Cat	&Cat::operator=(const Cat &other)
+WrongCat	&WrongCat::operator=(const WrongCat &other)
 {
-	std::cout << "Passing through Cat operator=() overload" << std::endl;
+	std::cout << "Passing through WrongCat operator=() overload" << std::endl;
 	this->type = other.getType();
 	return (*this);
 }
 
-void	Cat::makeSound(void) const
+void	WrongCat::makeSound(void) const
 {
 	std::cout << "Meow" << std::endl;
 }

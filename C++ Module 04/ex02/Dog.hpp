@@ -3,11 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: prossi <prossi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:21:25 by prossi            #+#    #+#             */
-/*   Updated: 2022/07/05 17:21:26 by prossi           ###   ########.fr       */
+/*   Updated: 2022/07/29 19:15:54 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
+#include "Brain.hpp"
+#include "Animal.hpp"
+#include <iostream>
+#include <string>
+
+class Dog : public Animal
+{
+	private :
+
+	Brain *brain;
+
+	public :
+
+	Dog();
+	virtual ~Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+
+	void makeSound() const;
+
+	Brain *get_brain(void) const;
+};

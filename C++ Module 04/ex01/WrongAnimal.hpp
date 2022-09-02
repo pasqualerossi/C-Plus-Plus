@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prossi <prossi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:20:28 by prossi            #+#    #+#             */
-/*   Updated: 2022/07/29 19:06:58 by prossi           ###   ########.fr       */
+/*   Created: 2022/07/29 19:10:33 by prossi            #+#    #+#             */
+/*   Updated: 2022/07/29 19:10:39 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Brain.hpp"
 #include <iostream>
 #include <string>
 
-class Animal
+class WrongAnimal
 {
 	protected :
 
@@ -24,14 +23,12 @@ class Animal
 
 	public :
 
-	Animal();
-	virtual ~Animal(void);
-	Animal(const Animal &other);
-	Animal &operator=(const Animal &other);
+	WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal(const WrongAnimal &other);
+	virtual WrongAnimal &operator=(const WrongAnimal &other);
 
-	void makeSound(void) const;
+	void makeSound() const;
 
-	virtual Brain *get_brain(void) const;
-
-	virtual std::string getType(void) const;
+	std::string getType() const;
 };
