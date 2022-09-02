@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConversion.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <prossi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 15:44:58 by prossi            #+#    #+#             */
-/*   Updated: 2022/08/05 13:04:11 by prossi           ###   ########.fr       */
+/*   Created: 2022/07/06 15:45:29 by prossi            #+#    #+#             */
+/*   Updated: 2022/08/05 13:03:22 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConversion.hpp"
+#ifndef SCALAR_HPP_
+# define SCALAR_HPP_
 
-#include <iostream>
+# include <string>
 
-int main(int argc, char *argv[]) 
+class Scalar 
 {
-	if (argc == 1) 
-	{
-		std::cout << "Error: no parameters\n" << "Usage: <program> <literal>" << std::endl;
-		return 1;
-	}
+	public:
 
-	Scalar::convert(argv[1]);
+		~Scalar();
 
-	return 0;
-}
+		static void convert(const std::string& literal);
+	
+	private:
+
+		Scalar();
+		Scalar(const Scalar& other);
+		Scalar& operator=(const Scalar& other);
+};
+
+#endif
