@@ -45,8 +45,8 @@ int	main(void)
 			system("clear");
 			std::cout << "ADD New Contact"<< std::endl;
 			
-			for (int i = 1; i >= 0; i--)
-				PB.Cons[i] = PB.Cons[i - 1];
+			for (int i = PB.num - 1; i >= 0; i--)
+    				PB.Cons[i+1] = PB.Cons[i];
 			std::cout << "first name of contact  -> last name -> nick name -> number -> darkest secret" << std::endl;
 			std::cin >> PB.Cons[0].name;
 			while (PB.Cons[0].name.size() < 10)
