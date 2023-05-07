@@ -25,7 +25,7 @@ int    main(int argc, char **argv)
         {
             for (int j = 0; argv[i][j]; j++)
                 std::cout << (char)toupper(argv[i][j]);
-            (i != argc)? std::cout << " " : std::cout << "\n";
+            std::cout << " ";
         }
     }
     std::cout << std::endl;
