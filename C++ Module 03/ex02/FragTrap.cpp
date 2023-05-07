@@ -49,13 +49,12 @@ FragTrap	&FragTrap::operator=(FragTrap &fragTrap)
 	return (*this);
 }
 
-void	FragTrap::attack(std::string const & target)
+void FragTrap::attack(std::string const & target)
 {
-	std::cout << "FragTrap " << this->getName() << " has attacked " << target << ", " \
-	<< "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+    std::cout << this->getName() << " has attacked " << target << ", " << "causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 
-void	FragTrap::highFivesGuys()
+void FragTrap::highFivesGuys()
 {
-	std::cout << "HIGH FIVES GUYS!" << std::endl;
+    std::cout << this->getName() << ": \"HIGH FIVES GUYS!\"" << std::endl;
 }
