@@ -27,18 +27,15 @@ class Zombie
 
 	void announce( void )
 	{
-		std::cout << this->name;
-		std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
+		std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 	};
 	void setname(std::string name)
 	{
-		if (!name.empty())
-			this->name = name;
+		this->name = name;
 	};
 	void distroyz(void)
 	{
-		std::cout << "destroying : ";
-		std::cout << this->name << std::endl;
+		std::cout << this->name << ": destroying"<< std::endl;
 	};
 };
 
