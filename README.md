@@ -1,6 +1,3 @@
-# C++ Resource
-https://cpp_modules.simple.ink/
-
 <div align="center">
 
 # C++ 00 to C++ 08 Modules
@@ -63,3 +60,6 @@ https://cpp_modules.simple.ink/
 - [ex00: Easy find](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2008/ex00)
 - [ex01: Span](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2008/ex01)
 - [ex02: Mutated abomination](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2008/ex02)
+
+# C++ Resource
+https://cpp_modules.simple.ink/
