@@ -64,7 +64,7 @@ void Scalar::convert(const std::string& literal)
 			toChar = "imposible"; break;
 		}
 	}
-	if (toChar == "" && std::isprint(toInt)) 
+	if (toChar == "" && (toInt >= 32 && toInt <= 126)) 
 	{
 		toChar = "'";
 		toChar += static_cast<char>(toInt);
