@@ -5,18 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 13:42:03 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/08/25 13:45:50 by ddavlety         ###   ########.fr       */
+/*   Created: 2024/08/29 14:36:12 by ddavlety          #+#    #+#             */
+/*   Updated: 2024/08/29 14:36:12 by ddavlety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <iostream>
 #include <fstream>
+#include <exception>
+#include <cstdlib>
+#include <ctime>
 
 #ifndef DB_FILE
-# define DB_FILE "files/data.csv"
+# define DB_FILE "./files/data.csv"
 #endif
+
+
+void check_key(std::string key) {
+	std::stringstream ss(key);
+	std::string token;
+	int year;
+	int month;
+	int day;
+
+	int pos = 0;
+	std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+
+	static const int daysInMonths[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	while (std::getline(ss, token, '-')) {
+		std::stringstream key(token);
+		switch (pos)
+		{
+			case 0:
+				key >> year;
+				if (key.fail() || !key.eof())
+					throw std::logic_error("check date");
+				if (token.length() != 4 ||
+					year > now->tm_year + 1900 ||
+					year < 2009)
+					throw std::logic_error("check date");
+				pos++;
+				continue;;
+			case 1:
+				key >> month;
+				if (key.fail() || !key.eof())
+					throw std::logic_error("check date");
+				if (token.length() != 2 ||
+					(year == now->tm_year && month > now->tm_mon + 1))
+					throw std::logic_error("check date");
+				if (month > 12 || month < 1)
+					throw std::logic_error("check date");
+				pos++;
+				continue;;
+			case 2:
+				key >> day;
+				if (key.fail() || !key.eof())
+					throw std::logic_error("check date");
+				if (token.length() != 2 ||
+					(year == now->tm_year && month == now->tm_mon && day > now->tm_mday))
+					throw std::logic_error("check date");
+				if (year == 2009 && (month < 1 || (month == 1 && day < 02)))
+					throw std::logic_error("check date");
+				if (day < 1 || day > daysInMonths[month - 1])
+					throw std::logic_error("check date");
+				pos++;
+				continue;;
+			default:
+				throw std::logic_error("check date");
+				continue;;
+			pos++;
+		}
+	}
+}
 
 int main(int argc, char *argv[])
 {
@@ -35,7 +97,6 @@ int main(int argc, char *argv[])
 	while (std::getline(fs, line)) {
 		data.append(line);
 	}
-	// std::cout << data;
 	fs.close();
 	fs.open(argv[1], std::fstream::in);
 	if (!fs.is_open())
@@ -47,7 +108,7 @@ int main(int argc, char *argv[])
 	{
 		std::stringstream	ss(line);
 		std::string			key;
-		double				value;
+		float				value;
 
 		if (line.find('|') == line.npos)
 		{
@@ -60,17 +121,23 @@ int main(int argc, char *argv[])
 		key.erase(key.end() - 1);
 		try {
 			ss >> value;
+			check_key(key);
 		} catch (std::exception &e) {
 			std::cerr << "Error: Bad input on key " << key << std::endl;
+			continue;
 		}
-		if (value > 2147483647)
+		if (ss.fail()) {
+			std::cerr << "Error: Bad input on key " << key << std::endl;
+			continue;
+		}
+		if (value > 1000)
 		{
-			std::cout << "Error: too large a number." << std::endl;
+			std::cerr << "Error: value is too large." << std::endl;
 			continue;
 		}
 		if (value <= 0)
 		{
-			std::cout << "Error: not a positive number." << std::endl;
+			std::cerr << "Error: not a positive number." << std::endl;
 			continue;
 		}
 		std::cout << key << " => " << value << 	" = " << value * data[key] << std::endl;

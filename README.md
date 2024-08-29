@@ -79,9 +79,13 @@ Templated Containers, Iterators and Algorithms
 - [ex01: Span](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2008/ex01)
 - [ex02: Mutated abomination](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2008/ex02)
 
-## C++ 09
+## [C++ 09](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2009)
 
-If anyone did C++ Module 09, let me know and I can add it here.
+Containers use cases and performance
+
+- [ex00: Bitcoin Exchange](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2009/ex00)
+- [ex01: Reverse Polish Notation](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2009/ex01)
+- [ex02: PmergeMe](https://github.com/pasqualerossi/C-Plus-Plus/tree/main/C%2B%2B%20Module%2009/ex02)
 
 <br>
 

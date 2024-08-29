@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ddavlety <ddavlety@student.42berlin.de>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 13:42:31 by ddavlety          #+#    #+#             */
-/*   Updated: 2024/08/25 13:42:31 by ddavlety         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PmergeMe.hpp"
 #include <ctime>
 #include <time.h>
@@ -18,7 +6,7 @@ int main(int argc, const char *argv[])
 {
 	/*containers*/
 	std::vector<int> vector_container;
-	std::deque<int> deque_container;
+	std::list<int> list_container;
 	/*time calculations*/
 	std::clock_t start;
 	std::clock_t finish;
@@ -46,11 +34,11 @@ int main(int argc, const char *argv[])
 	std::cout << "Time to process a range of 5 elements with std::vector<int>: "
 		<< (float)(finish - start)/CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
 
-	/*Deque contaner sort*/
+	/*list contaner sort*/
 	start = std::clock();
-	deque_container = build_container<std::deque<int> >(&argv[1]);
+	list_container = build_container<std::list<int> >(&argv[1]);
 	mergeInsertSort(vector_container);
 	finish = std::clock();
-	std::cout << "Time to process a range of 5 elements with std::deque<int>: "
+	std::cout << "Time to process a range of 5 elements with std::list<int>: "
 		<< (float)(finish - start)/CLOCKS_PER_SEC * 1000000 << " us" << std::endl;
 }
